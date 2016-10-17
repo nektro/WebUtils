@@ -3,13 +3,13 @@
 * Copyright (c) 2016
 */
 (function() {
-    var keyStates = new Set();
+    var keyStates = new Map();
 
     window.addEventListener('keydown', (e) => {
-        keyStates.add(e.keyCode);
+        keyStates.set(e.keyCode, 1);
     });
     window.addEventListener('keyup', (e) => {
-        keyStates.delete(e.keyCode);
+        keyStates.set(e.keyCode, 0);
     });
     /**
      * Adds two numbers
@@ -17,6 +17,9 @@
      * @return {Boolean} whether or not the specified key is currently being pressed
      */
     window.isKeyDown = function(k) {
-        return keyStates.has(k);
+        if (keyStates.has(k))
+            if (keyStates.get(k) === 0)
+                return true;
+        return false;
     };
 })();
