@@ -17,3 +17,10 @@ A collections of JavaScript libraries that help making web sites, apps, and game
     <dt>isKeydown(key)</dt>
     <dd>return if the {key} is being being pressed down</dd>
 </dl>
+
+----
+### classes.js
+<dl>
+    <dt>CustomEventTarget</dt>
+    <dd>Gives the ability to call <em>addEventListener</em> and <em>dispatchEvent</em> on non DOM elements</dd>
+</dl>
