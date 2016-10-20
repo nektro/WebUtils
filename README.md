@@ -1,5 +1,5 @@
 # WebUtils
-A collections of JavaScript libraries that help making websites, web apps, and games easier.
+A collections of JavaScript libraries that help making web sites, apps, and games easier.
 
 ----
 ### general.js
