@@ -1,4 +1,4 @@
-function addScript(url,on) {
+function addScript(url, on) {
     var script = document.createElement('script');
     if (on !== undefined) script.addEventListener('load', function(e) { on(e); });
     script.async = false;
@@ -14,4 +14,14 @@ function getInheritance(o) {
         p = p.__proto__;
     }
     return it;
+}
+function solve(x, op, y) {
+    switch (op) {
+        case '+': return x + y;
+        case '-': return x - y;
+        case '*': return x * y;
+        case '/': return x / y;
+        case '%': return x % y;
+        case '^': return x ** y;
+    }
 }
