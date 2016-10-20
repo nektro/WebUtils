@@ -22,6 +22,6 @@ function solve(x, op, y) {
         case '*': return x * y;
         case '/': return x / y;
         case '%': return x % y;
-        case '^': return x ** y;
+        case '^': return Math.pow(x, y);
     }
 }
