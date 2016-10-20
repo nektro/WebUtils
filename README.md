@@ -1,6 +1,7 @@
 # WebUtils
-A collections of JavaScript libraries that help making websites and games easier.
+A collections of JavaScript libraries that help making websites, web apps, and games easier.
 
+----
 ### general.js
 <dl>
     <dt>addScript(url, callback)</dt>
@@ -10,6 +11,7 @@ A collections of JavaScript libraries that help making websites and games easier
     <dd>returns an array containing the inheritance tree of an Object {o}</dd>
 </dl>
 
+----
 ### isKeyDown.js
 <dl>
     <dt>isKeydown(key)</dt>
