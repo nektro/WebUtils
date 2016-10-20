@@ -9,6 +9,9 @@ A collections of JavaScript libraries that help making web sites, apps, and game
     
     <dt>getInheritance(o)</dt>
     <dd>returns an array containing the inheritance tree of an Object {o}</dd>
+    
+    <dt>solve(x, op, y)</dt>
+    <dd>solve the math equation <em>x op y</em></dd>
 </dl>
 
 ----
