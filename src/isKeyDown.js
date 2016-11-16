@@ -18,7 +18,7 @@
      */
     window.isKeyDown = function(k) {
         if (keyStates.has(k))
-            if (keyStates.get(k) === 0)
+            if (keyStates.get(k) === 1)
                 return true;
         return false;
     };
