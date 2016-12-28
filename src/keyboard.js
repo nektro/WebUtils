@@ -33,6 +33,10 @@
             return true;
         },
         getKeyMap: function() {
+            var ret = [];
+            for (const it of keyStates.entries())
+                if (it.value[1] == 1)
+                    ret.push(it.value[0]);
             return keyStates;
         }
     };
