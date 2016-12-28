@@ -2,6 +2,8 @@ var Keys = {
     /******************\
     |* 0 - 7 RESERVED *|
     \******************/
+    BREAK: 3,
+    
     BACKSPACE: 8,
     TAB: 9,
     
@@ -9,8 +11,9 @@ var Keys = {
     
     SHIFT: 16,
     CONTROL: 17,
+    ALT: 18,
     
-    PAUSE_BREAK: 19,
+    PAUSE: 19,
     CAPS_LOCK: 20,
     
     ESCAPE: 27,
