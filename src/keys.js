@@ -108,7 +108,7 @@ var Keys = {
     EQUALS: 187,
     COMMA: 188,
     MINUS: 189,
-    PERIOS: 190,
+    PERIOD: 190,
     FORWARD_SLASH: 191,
     GRAVE_ACCENT: 192,
     
