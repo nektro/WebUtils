@@ -32,7 +32,7 @@
         },
         getKeyMap: function() {
             var ret = [];
-            for (const it of keyStates.entries())
+            for (var it of keyStates.entries())
                 if (it[1] == 1)
                     ret.push(it[0]);
             return ret;
