@@ -1,5 +1,5 @@
 (function() {
-    var KeyStates = new Map();
+    var keyStates = new Map();
     window.addEventListener('keydown', (e) => {
         keyStates.set(e.keyCode, 1);
     });
