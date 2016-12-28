@@ -12,7 +12,6 @@
         keyStates.set(e.keyCode, 0);
     });
     /**
-     * Adds two numbers
      * @param {Number} a key ID
      * @return {Boolean} whether or not the specified key is currently being pressed
      */
@@ -21,5 +20,16 @@
             if (keyStates.get(k) === 1)
                 return true;
         return false;
+    };
+    /**
+     * @param {Array<Number>} an array of key IDs
+     * @return {Boolean} whether or not all of the keys in the array are being pressed
+     */
+    window.areKeysDown = function(ka) {
+        for (var y in ka)
+            if (keyStates.has(y))
+                if (keyStates.get(y) === 0)
+                    return false;
+        return true;
     };
 })();
