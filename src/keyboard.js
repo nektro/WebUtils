@@ -26,11 +26,9 @@
             return false;
         },
         areKeysDown: function(ka) {
-            for (var y in ka)
-                if (keyStates.has(y))
-                    if (keyStates.get(y) === 0)
-                        return false;
-            return true;
+            return ka.every(function(x) {
+                return window.KeyHelp.getKeyMap().indexOf(x) > -1;
+            });
         },
         getKeyMap: function() {
             var ret = [];
