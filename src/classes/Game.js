@@ -15,7 +15,7 @@ class GameObject {
         });
         window.addEventListener('click', (e) => {
             if (this.activeState >= 0) {
-                this.gstates[this.activeState].onClick(e.keyCode);
+                this.gstates[this.activeState].onClick(e);
             }
         });
     }
