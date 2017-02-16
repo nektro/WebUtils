@@ -26,8 +26,13 @@ class Circle {
         return new Point(this.x, this.y);
     }
     intersects(ob) {
-        if (ob instanceof Point) // circle x point via https://math.stackexchange.com/a/198769
+        if (ob instanceof Point) { // circle x point via https://math.stackexchange.com/a/198769
             return ob.distanceTo(this.center) <= this.r;
+        } else
+        if (ob instanceof Circle) {
+            let dbc = this.center.distanceTo(ob.center);
+            return (dbc <= this.r + ob.r) && (dbc >= Math.abs(this.r - ob.r)); 
+        }
         return false;
     }
 }
