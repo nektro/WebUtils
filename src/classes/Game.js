@@ -24,16 +24,16 @@ class GameObject {
             this.gstates.push(gs);
         }
     }
-    start() {
-        this.gotoState(0);
-    }
     gotoState(s) {
         this.activeState = s;
         this.gstates[this.activeState].init();
         this.loop();
     }
+    start() {
+        this.gotoState(0);
+    }
     next() {
-        this.activeState += 1;
+        this.gotoState(this.activeState + 1);
     }
     loop() {
         var st = this.gstates[this.activeState];
