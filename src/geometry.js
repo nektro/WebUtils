@@ -29,7 +29,7 @@ class Circle {
         if (ob instanceof Point) { // circle x point via https://math.stackexchange.com/a/198769
             return ob.distanceTo(this.center) <= this.r;
         } else
-        if (ob instanceof Circle) {
+        if (ob instanceof Circle) { // circle x circle via https://stackoverflow.com/a/8367547
             let dbc = this.center.distanceTo(ob.center);
             return (dbc <= this.r + ob.r) && (dbc >= Math.abs(this.r - ob.r)); 
         }
