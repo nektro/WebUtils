@@ -19,4 +19,9 @@ class Circle {
         this.y = b | 0;
         this.r = c | 0;
     }
+    intersects(ob) {
+        if (ob instanceof Point) // circle x point via https://math.stackexchange.com/a/198769
+            return Math.sqrt(Math.pow(ob.x + this.x) + Math.pow(ob.y + this.y)) <= this.r;
+        return false;
+    }
 }
