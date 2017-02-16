@@ -13,6 +13,11 @@ class GameObject {
                 this.gstates[this.activeState].onKeyPressed(e.keyCode);
             }
         });
+        window.addEventListener('click', (e) => {
+            if (this.activeState >= 0) {
+                this.gstates[this.activeState].onClick(e.keyCode);
+            }
+        });
     }
     addState(gs) {
         if (gs instanceof GameState) {
@@ -43,4 +48,5 @@ class GameState {
     update() { }
     draw() { }
     onKeyPressed() { }
+    onClick() { }
 }
