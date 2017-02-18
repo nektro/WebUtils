@@ -14,6 +14,11 @@ class Point {
     distanceTo(pt) {
         return Math.sqrt(Math.pow(pt.x - this.x, 2) + Math.pow(pt.y - this.y, 2));
     }
+    add(pt) {
+        this.x += pt.x;
+        this.y += pt.y;
+        return this;
+    }
 }
 
 class Circle {
