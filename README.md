@@ -17,13 +17,13 @@ A collections of JavaScript libraries that help making web sites, apps, and game
 ----
 ### keyboard.js
 <dl>
-    <dt>isKeydown(key)</dt>
+    <dt>KeyHelp.isKeydown(key)</dt>
     <dd>return if the {key} is being being pressed down</dd>
     
-    <dt>areKeysDown(keyArry)</dt>
+    <dt>KeyHelp.areKeysDown(keyArry)</dt>
     <dd>return true if all of the keys in {keyArray} are pressed Down</dd>
     
-    <dt>getKeyMap()</dt>
+    <dt>KeyHelp.getKeyMap()</dt>
     <dd>return an Array of all keys currently being pressed</dd>
     
     <dt>KeyHelp.codes</dt>
