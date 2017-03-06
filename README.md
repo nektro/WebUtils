@@ -15,15 +15,61 @@ A collections of JavaScript libraries that help making web sites, apps, and game
 </dl>
 
 ----
-### isKeyDown.js
+### keyboard.js
 <dl>
     <dt>isKeydown(key)</dt>
     <dd>return if the {key} is being being pressed down</dd>
+    
+    <dt>areKeysDown(keyArry)</dt>
+    <dd>return true if all of the keys in {keyArray} are pressed Down</dd>
+    
+    <dt>getKeyMap()</dt>
+    <dd>return an Array of all keys currently being pressed</dd>
+    
+    <dt>KeyHelp.codes</dt>
+    <dd>Map of key names to key codes</dd>
 </dl>
 
 ----
-### classes.js
-<dl>
-    <dt>CustomEventTarget</dt>
-    <dd>Gives the ability to call <em>addEventListener</em> and <em>dispatchEvent</em> on non DOM elements</dd>
-</dl>
+### geometry.js
+Do 2D geometry with ease
+* Point
+* * constructor(x, y)
+* * distanceTo(Point) : Number
+* * add(Point) : this
+* Circle
+* * constructor(x, y, radius)
+* * center() : Point
+* * intersects(Point|Circle) : Boolean
+
+----
+### classes/Game.js
+* GameObject
+- - constructor()
+- - addState(GameState)
+- - gotoState(Number)
+- - start()
+- - next()
+- GameState
+- - constructor()
+- - init()
+- - update()
+- - draw()
+- - onKeyPressed()
+- - onClick()
+
+----
+### classes/Loop.js
+Keep count, never go out of bounds
+- Loop
+- - constructor(min, max, startValue)
+- - inc()
+- - dec()
+- - get this.value
+
+----
+### classes/Looper.js
+Call a function every certain amount of time __Requires Loop.js__
+- Looper
+- - constructor(min, max, start, framerate, function)
+- - update() // must be called every frame
