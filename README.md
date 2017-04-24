@@ -6,10 +6,8 @@ A collections of JavaScript libraries that help making web sites, apps, and game
 <dl>
     <dt>addScript(url, callback)</dt>
     <dd>add a script located at {url} to the page and optionally run {callback} when script has finished loading</dd>
-    
     <dt>getInheritance(o)</dt>
     <dd>returns an array containing the inheritance tree of an Object {o}</dd>
-    
     <dt>solve(x, op, y)</dt>
     <dd>solve the math equation <em>x op y</em></dd>
 </dl>
@@ -19,13 +17,10 @@ A collections of JavaScript libraries that help making web sites, apps, and game
 <dl>
     <dt>KeyHelp.isKeydown(key)</dt>
     <dd>return if the {key} is being being pressed down</dd>
-    
     <dt>KeyHelp.areKeysDown(keyArry)</dt>
     <dd>return true if all of the keys in {keyArray} are pressed Down</dd>
-    
     <dt>KeyHelp.getKeyMap()</dt>
     <dd>return an Array of all keys currently being pressed</dd>
-    
     <dt>KeyHelp.codes</dt>
     <dd>Map of key names to key codes</dd>
 </dl>
