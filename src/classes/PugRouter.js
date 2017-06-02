@@ -43,13 +43,13 @@ class PugRouter {
     setPageContent(con) {
         document.body.innerHTML = con;
     }
-    start() {
+    start(ch) {
         // fix hash
         if (location.hash.length === 0)
             location.hash = "/";
         // add listener
         // fix # links
         this.gotoPage(location.hash.substring(1));
-        this.observer.observe(document.body, { childList:true });
+        this.observer.observe(ch || document.body, { childList:true });
     }
 }
