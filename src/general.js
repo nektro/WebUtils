@@ -27,3 +27,7 @@ function solve(x, op, y) {
         case '^': return Math.pow(x, y);
     }
 }
+function dirname(path) {
+    // see: http://locutus.io/php/filesystem/dirname/
+    return path.replace(/\\/g, '/').replace(/\/[^/]*\/?$/, '')
+}
