@@ -17,9 +17,9 @@ class PugRouter {
         });
     }
     getPugFileName(pn) {
-        if (pn === '/') return Promise.resolve('index');
+        if (pn === '/') return Promise.resolve('/index');
         if (this.pages.indexOf(pn) > -1) return Promise.resolve(pn);
-        return Promise.resolve('blank');
+        return Promise.resolve('/blank');
     }
     getPageContent(p) {
         return this.getPugFileName(p).then((pl) => {
@@ -27,7 +27,7 @@ class PugRouter {
                 return Promise.resolve(this.cache.get(pl));
             }
             else {
-                return fetch(`${this.root}/pages/${pl}.pug`).then((x) => { return x.text() }).then((x) => {
+                return fetch(`${this.root}/pages${pl}.pug`).then((x) => { return x.text() }).then((x) => {
                     let file = pug.compile(x)();
                     if (!(this.cache.has(pl))) this.cache.set(pl, file);
                     return Promise.resolve(file);
