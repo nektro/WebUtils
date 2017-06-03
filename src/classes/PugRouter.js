@@ -8,12 +8,8 @@ class PugRouter {
         this.pages = pa;
         this.pages.push('/');
         this.cache = new Map();
-        this.observer = new MutationObserver((ml) => {
-            document.querySelectorAll(`a[href^="#"]`).forEach((v,i) => {
-                v.addEventListener('click', (e) => {
-                    this.gotoPage(v.getAttribute('href').substring(1));
-                });
-            });
+        window.addEventListener('hashchange', (e) => {
+            this.gotoPage(e.newURL.substring(e.newURL.indexOf('#') + 1));
         });
     }
     getPugFileName(pn) {
@@ -47,9 +43,7 @@ class PugRouter {
         // fix hash
         if (location.hash.length === 0)
             location.hash = "/";
-        // add listener
         // fix # links
         this.gotoPage(location.hash.substring(1));
-        this.observer.observe(ch || document.body, { childList:true });
     }
 }
