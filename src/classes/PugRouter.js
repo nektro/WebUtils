@@ -1,3 +1,4 @@
+'use strict';
 /*
  * @author Nektro (Sean Denny)
  * Copyright (c) 2017
