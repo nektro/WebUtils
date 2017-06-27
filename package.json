@@ -1,0 +1,8 @@
+{
+  "name": "WebUtils",
+  "version": "0.1",
+  "description": "A small collection of JS files that make making apps and games easier",
+  "repository": "https://github.com/Nektro/WebUtils.git",
+  "author": "Nektro <nektromc@gmail.com>",
+  "license": "MIT"
+}
