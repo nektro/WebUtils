@@ -42,9 +42,12 @@ class PugRouter {
     }
     start(ch) {
         // fix hash
-        if (location.hash.length === 0)
+        if (location.hash.length === 0) {
             location.hash = "/";
-        // fix # links
-        this.gotoPage(location.hash.substring(1));
+        }
+        else {
+            // else hash is set, go to that
+            this.gotoPage(location.hash.substring(1));
+        }
     }
 }
