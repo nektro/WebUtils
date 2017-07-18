@@ -8,8 +8,8 @@
 
 class Point {
     constructor(a, b, c, d) {
-        this.x = a | 0;
-        this.y = b | 0;
+        this.x = a || 0;
+        this.y = b || 0;
     }
     distanceTo(pt) {
         return Math.sqrt(Math.pow(pt.x - this.x, 2) + Math.pow(pt.y - this.y, 2));
@@ -23,9 +23,9 @@ class Point {
 
 class Circle {
     constructor(a, b, c) {
-        this.x = a | 0;
-        this.y = b | 0;
-        this.r = c | 0;
+        this.x = a || 0;
+        this.y = b || 0;
+        this.r = c || 0;
     }
     center() {
         return new Point(this.x, this.y);
