@@ -41,3 +41,30 @@ class Circle {
         return false;
     }
 }
+
+class Line {
+    constructor(p1, p2) {
+        this.pt1 = p1 || new Point();
+        this.pt2 = p2 || new Point();
+    }
+    length() {
+        return this.pt1.distanceTo(this.pt2);
+    }
+}
+
+class Rectangle {
+    constructor(p1, p2, p3, p4) {
+        this.pts = [ p1, p2, p3, p4 ];
+    }
+}
+
+class Square extends Rectangle {
+    constructor(x, y, w, h) {
+        super(
+            new Point(x + 0, y + 0),
+            new Point(x + w, y + 0),
+            new Point(x + w, y + h),
+            new Point(w + 0, y + h)
+        )
+    }
+}
