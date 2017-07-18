@@ -27,7 +27,7 @@ class Circle {
         this.y = b | 0;
         this.r = c | 0;
     }
-    get center() {
+    center() {
         return new Point(this.x, this.y);
     }
     intersects(ob) {
@@ -36,7 +36,7 @@ class Circle {
         } else
         if (ob instanceof Circle) { // circle x circle via https://stackoverflow.com/a/8367547
             let dbc = this.center.distanceTo(ob.center);
-            return (dbc <= this.r + ob.r) && (dbc >= Math.abs(this.r - ob.r)); 
+            return (dbc <= this.r + ob.r) && (dbc >= Math.abs(this.r - ob.r));
         }
         return false;
     }
