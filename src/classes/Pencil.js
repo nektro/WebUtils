@@ -54,7 +54,7 @@ class Pencil {
     drawShape(s, c, m) {
         switch (s.__proto__.constructor) {
             case Point: {
-                this.drawRect(s.x, s.y, 1, 1, m, c);
+                this.drawRect(s.x, s.y, 1, 1, c, m);
                 break;
             }
             case Circle: {
@@ -95,7 +95,7 @@ class Pencil {
     drawRect(x, y, w, h, c, m) {
         this.ctx.beginPath();
         this.ctx.rect(x,y,w,h);
-        this.draw(c);
+        this.draw(m,c);
     }
 
     // draw Text
