@@ -83,9 +83,7 @@ class Pencil {
     drawPolygon(pts, c, m) {
         this.ctx.beginPath();
         this.ctx.moveTo(pts[0].x, pts[1].y);
-        let pa = pts.slice();
-        pa.push(pa.shift());
-        pa.forEach((v) => {
+        pts.forEach((v) => {
             this.ctx.lineTo(v.x, v.y);
         });
         this.draw(m,c);
