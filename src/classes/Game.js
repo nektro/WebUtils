@@ -7,7 +7,7 @@ class GameObject {
     constructor() {
         this.gstates = new Array();
         this.activeState = -1;
-        
+
         window.addEventListener('keydown', (e) => {
             if (this.activeState >= 0) {
                 this.gstates[this.activeState].onKeyPressed(e.keyCode);
