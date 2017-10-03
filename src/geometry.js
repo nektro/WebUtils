@@ -19,6 +19,11 @@ class Point {
         this.y += pt.y;
         return this;
     }
+    sub(pt) {
+        this.x -= pt.x;
+        this.y -= pt.y;
+        return this;
+    }
 }
 
 class Circle {
