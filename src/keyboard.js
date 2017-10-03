@@ -1,12 +1,12 @@
 (function() {
     var keyStates = new Map();
     window.addEventListener('keydown', (e) => {
-        keyStates.set(e.keyCode, 1);
+        keyStates.set(e.keyCode, true);
     });
     window.addEventListener('keyup', (e) => {
-        keyStates.set(e.keyCode, 0);
+        keyStates.set(e.keyCode, false);
     });
-    
+
     window.KeyHelp = {
         codes: {
             BREAK: 3, BACKSPACE: 8, TAB: 9, ENTER: 13, SHIFT: 16, CONTROL: 17, ALT: 18, PAUSE: 19, CAPS_LOCK: 20, ESCAPE: 27, SPACE: 32,
@@ -21,7 +21,7 @@
         },
         isKeyDown: function(k) {
             if (keyStates.has(k))
-                if (keyStates.get(k) === 1)
+                if (keyStates.get(k) === true)
                     return true;
             return false;
         },
