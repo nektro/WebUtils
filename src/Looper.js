@@ -1,4 +1,5 @@
 'use strict';
+
 class Looper {
     constructor(mn, mx, sf, rt, fn) {
         this.loop = new Loop(mn, mx, sf);
