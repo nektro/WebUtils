@@ -1,4 +1,5 @@
 'use strict';
+
 class Loop {
     constructor(sm, tp, st) {
         this.min = sm;
