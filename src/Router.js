@@ -47,7 +47,7 @@ class Router {
         });
     }
     setPageContent(con) {
-        document.body.appendChild(document.createTextNode(con));
+        document.body.innerHTML = (con);
     }
     start(ch) {
         // fix hash
