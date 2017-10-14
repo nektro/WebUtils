@@ -17,7 +17,7 @@ class Router {
         });
     }
     resolveFileName(rt) {
-        if (this.pages.indexOf(rt) > -1) return [`${rt}.pug`];
+        if (this.pages.indexOf(rt) > -1) return [`${rt}${this.extension}`];
     }
     getFileName(pn) {
         if (pn === '/') return Promise.resolve([`/index${this.extension}`]);
