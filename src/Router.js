@@ -11,6 +11,7 @@ class Router {
         this.pages.push('/');
         this.cache = new Map();
         this.extension = options.extension;
+        this.element = document.body;
         window.addEventListener('hashchange', (e) => {
             this.gotoPage(e.newURL.substring(e.newURL.indexOf('#') + 1));
         });
@@ -47,7 +48,7 @@ class Router {
         });
     }
     setPageContent(con) {
-        document.body.innerHTML = (con);
+        this.element.innerHTML = (con);
     }
     start(ch) {
         // fix hash
@@ -57,6 +58,10 @@ class Router {
         else {
             // else hash is set, go to that
             this.gotoPage(location.hash.substring(1));
+        }
+        // set new root element
+        if (ch instanceof Element) {
+            this.element = ch;
         }
     }
 }
