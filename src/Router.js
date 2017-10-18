@@ -5,10 +5,8 @@
  */
 class Router {
     constructor(r, ops) {
-        const options = Object.assign({}, {pages:[], extension:'.html'}, ops || {});
+        const options = Object.assign({}, {extension:'.html'}, ops || {});
         this.root = r;
-        this.pages = options.pages;
-        this.pages.push('/');
         this.cache = new Map();
         this.extension = options.extension;
         this.element = document.body;
@@ -17,13 +15,12 @@ class Router {
         });
     }
     resolveFileName(rt) {
-        if (this.pages.indexOf(rt) > -1) return [`${rt}${this.extension}`];
+        return [rt];
     }
     getFileName(pn) {
-        if (pn === '/') return Promise.resolve([`/index${this.extension}`]);
         let rsn = this.resolveFileName(pn);
         if (rsn !== undefined) return Promise.resolve(rsn);
-        return Promise.resolve([`/blank${this.extension}`]);
+        return Promise.resolve([`/blank`]);
     }
     processFile(src) {
         return src;
@@ -34,7 +31,12 @@ class Router {
                 return Promise.resolve([this.cache.get(pl[0]),pl[1]]);
             }
             else {
-                return fetch(`${this.root}/pages${pl[0]}`).then((x) => { return x.text() }).then((x) => {
+                return fetch(`${this.root}/pages${pl[0]}${this.extension}`)
+                    .then((x) => {
+                        if (x.status === 200) return x.text();
+                        else return this.getPageContent([`/blank`]);
+                    })
+                    .then((x) => {
                     let file = this.processFile(x);
                     if (!(this.cache.has(pl[0]))) this.cache.set(pl[0], file);
                     return Promise.resolve([file,pl[1]]);
