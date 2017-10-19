@@ -25,18 +25,18 @@ class Router {
     processFile(src) {
         return src;
     }
-    __getPage(pn, ops) {
+    __getPage(pn) {
         if (this.cache.has(pn)) {
-            return Promise.resolve([this.cache.get(pn),ops]);
+            return Promise.resolve(this.cache.get(pn));
         }
         return fetch(`${this.root}/pages${pn}${this.extension}`).then((r) => {
             if (r.status === 200) return r.text();
-            return this.getPage(`/blank`);
+            if (pn === '/blank') return ``;
+            return this.__getPage(`/blank`);
         })
         .then((r) => {
-            const p = this.processFile(r);
-            this.cache.set(pn, p);
-            return Promise.resolve([p,ops]);
+            this.cache.set(pn, r);
+            return Promise.resolve(r);
         });
     }
     getPageContent(p) {
@@ -46,7 +46,7 @@ class Router {
     }
     gotoPage(pn) {
         this.getPageContent(pn).then((x) => {
-            this.setPageContent(...x);
+            this.setPageContent(this.processFile(x));
         });
     }
     setPageContent(con) {
