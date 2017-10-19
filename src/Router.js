@@ -25,23 +25,23 @@ class Router {
     processFile(src) {
         return src;
     }
+    __getPage(pn, ops) {
+        if (this.cache.has(pn)) {
+            return Promise.resolve([this.cache.get(pn),ops]);
+        }
+        return fetch(`${this.root}/pages${pn}${this.extension}`).then((r) => {
+            if (r.status === 200) return r.text();
+            return this.getPage(`/blank`);
+        })
+        .then((r) => {
+            const p = this.processFile(r);
+            this.cache.set(pn, p);
+            return Promise.resolve([p,ops]);
+        });
+    }
     getPageContent(p) {
-        return this.getFileName(p).then((pl) => {
-            if (this.cache.has(pl[0])) {
-                return Promise.resolve([this.cache.get(pl[0]),pl[1]]);
-            }
-            else {
-                return fetch(`${this.root}/pages${pl[0]}${this.extension}`)
-                    .then((x) => {
-                        if (x.status === 200) return x.text();
-                        else return this.getPageContent([`/blank`]);
-                    })
-                    .then((x) => {
-                    let file = this.processFile(x);
-                    if (!(this.cache.has(pl[0]))) this.cache.set(pl[0], file);
-                    return Promise.resolve([file,pl[1]]);
-                });
-            }
+        return this.getFileName(p).then((x) => {
+            return this.__getPage(...x);
         });
     }
     gotoPage(pn) {
@@ -50,7 +50,7 @@ class Router {
         });
     }
     setPageContent(con) {
-        this.element.innerHTML = (con);
+        this.element.innerHTML = `${con}`;
     }
     start(ch) {
         // fix hash
