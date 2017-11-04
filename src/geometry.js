@@ -24,6 +24,9 @@ class Point {
         this.y -= pt.y;
         return this;
     }
+    spread() {
+        return [ this.x, this.y ];
+    }
 }
 
 class Circle {
@@ -45,6 +48,9 @@ class Circle {
         }
         return false;
     }
+    spread() {
+        return [ this.x, this.y, this.radius ]
+    }
 }
 
 class Line {
@@ -54,6 +60,9 @@ class Line {
     }
     length() {
         return this.pt1.distanceTo(this.pt2);
+    }
+    spread() {
+        return [ this.pt1, this.pt2 ];
     }
 }
 
@@ -78,6 +87,9 @@ class Rectangle {
         }
         return false;
     }
+    spread() {
+        return [ this.x, this.y, this.width, this.height ];
+    }
 }
 
 class Square extends Rectangle {
@@ -89,5 +101,8 @@ class Square extends Rectangle {
 class Polygon {
     constructor(pts) {
         this.pts = pts;
+    }
+    spread() {
+        return this.pts;
     }
 }
