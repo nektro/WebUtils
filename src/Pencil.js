@@ -45,8 +45,19 @@ class Pencil {
         this.ctx.stroke();
     }
 
+    _getDrawMethod(m) {
+        switch (m) {
+            case 'stroke': return this.stroke.bind(this);
+            case 'fill': return this.fill.bind(this);
+            default: {
+                console.warn(`'${m}' is not a valid Pencil drawing method`);
+                return this.fill;
+            }
+        }
+    }
+
     draw(m,c) {
-        this[m || 'stroke'](c);
+        this._getDrawMethod(m)(c);
     }
 
     // integration for geometry.js
