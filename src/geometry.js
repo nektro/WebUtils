@@ -58,8 +58,11 @@ class Line {
 }
 
 class Rectangle {
-    constructor(p1, p2, p3, p4) {
-        this.pts = [ p1, p2, p3, p4 ];
+    constructor(x, y, w, h) {
+        this.x = x;
+        this.y = y;
+        this.width = w;
+        this.height = h;
     }
 }
 
