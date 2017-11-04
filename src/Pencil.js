@@ -82,7 +82,7 @@ class Pencil {
     // [[ Array<Point>, mode, color ]]
     drawPolygon(pts, m, c) {
         this.ctx.beginPath();
-        this.ctx.moveTo(pts[0].x, pts[1].y);
+        this.ctx.moveTo(pts[0].x, pts[0].y);
         pts.forEach((v) => {
             this.ctx.lineTo(v.x, v.y);
         });
