@@ -72,6 +72,12 @@ class Rectangle {
             new Point(this.x             , this.y + this.height)
         ]);
     }
+    intersects(ob) {
+        if (ob instanceof Point) {
+            return (ob.x >= this.x) && (ob.y >= this.y) && (ob.x <= this.x + this.width) && (ob.y <= this.y + this.height);
+        }
+        return false;
+    }
 }
 
 class Square extends Rectangle {
