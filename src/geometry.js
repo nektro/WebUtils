@@ -67,12 +67,7 @@ class Rectangle {
 }
 
 class Square extends Rectangle {
-    constructor(x, y, w, h) {
-        super(
-            new Point(x + 0, y + 0),
-            new Point(x + w, y + 0),
-            new Point(x + w, y + h),
-            new Point(w + 0, y + h)
-        )
+    constructor(x, y, s) {
+        super(x, y, s, s);
     }
 }
