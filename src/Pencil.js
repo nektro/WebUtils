@@ -83,7 +83,11 @@ class Pencil {
             }
             case Rectangle:
             case Square: {
-                this.drawPolygon(s.pts);
+                this.drawRect(s.x, s.y, s.width, s.height, m, c);
+                break;
+            }
+            case Polygon: {
+                this.drawPolygon(s.pts, m, c);
                 break;
             }
         }
