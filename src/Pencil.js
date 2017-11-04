@@ -86,6 +86,7 @@ class Pencil {
         pts.forEach((v) => {
             this.ctx.lineTo(v.x, v.y);
         });
+        this.ctx.lineTo(pts[0].x, pts[0].y);
         this.draw(m,c);
     }
 
