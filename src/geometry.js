@@ -71,3 +71,9 @@ class Square extends Rectangle {
         super(x, y, s, s);
     }
 }
+
+class Polygon {
+    constructor(pts) {
+        this.pts = pts;
+    }
+}
