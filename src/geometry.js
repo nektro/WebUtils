@@ -30,18 +30,18 @@ class Circle {
     constructor(a, b, c) {
         this.x = a || 0;
         this.y = b || 0;
-        this.r = c || 0;
+        this.radius = c || 0;
     }
     center() {
         return new Point(this.x, this.y);
     }
     intersects(ob) {
         if (ob instanceof Point) { // circle x point via https://math.stackexchange.com/a/198769
-            return ob.distanceTo(this.center) <= this.r;
+            return ob.distanceTo(this.center) <= this.radius;
         } else
         if (ob instanceof Circle) { // circle x circle via https://stackoverflow.com/a/8367547
-            let dbc = this.center.distanceTo(ob.center);
-            return (dbc <= this.r + ob.r) && (dbc >= Math.abs(this.r - ob.r));
+            let dtc = this.center.distanceTo(ob.center); // distance to center
+            return (dtc <= this.radius + ob.radius) && (dtc >= Math.abs(this.radius - ob.radius));
         }
         return false;
     }
