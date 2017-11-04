@@ -50,8 +50,8 @@ class Pencil {
     }
 
     // integration for geometry.js
-    // [[ shape, color, mode ]]
-    drawShape(s, c, m) {
+    // [[ shape, mode, color ]]
+    drawShape(s, m, c) {
         switch (s.__proto__.constructor) {
             case Point: {
                 this.drawRect(s.x, s.y, 1, 1, c, m);
@@ -79,8 +79,8 @@ class Pencil {
     }
 
     // draw an array of Points
-    // [[ Array<Point>, color, mode ]]
-    drawPolygon(pts, c, m) {
+    // [[ Array<Point>, mode, color ]]
+    drawPolygon(pts, m, c) {
         this.ctx.beginPath();
         this.ctx.moveTo(pts[0].x, pts[1].y);
         pts.forEach((v) => {
@@ -90,8 +90,8 @@ class Pencil {
     }
 
     // draw a rectangle
-    // [[ x, y, width, height, color, mode ]]
-    drawRect(x, y, w, h, c, m) {
+    // [[ x, y, width, height, mode, color ]]
+    drawRect(x, y, w, h, m, c) {
         this.ctx.beginPath();
         this.ctx.rect(x,y,w,h);
         this.draw(m,c);
