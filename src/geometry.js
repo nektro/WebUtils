@@ -87,6 +87,11 @@ class Rectangle {
         }
         return false;
     }
+    translate(pt) {
+        this.x += pt.x;
+        this.y += pt.y;
+        return this;
+    }
     spread() {
         return [ this.x, this.y, this.width, this.height ];
     }
