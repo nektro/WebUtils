@@ -64,30 +64,30 @@ export class Pencil {
     // integration for geometry.js
     // [[ shape, mode, color ]]
     drawShape(s, m, c) {
-        switch (s.__proto__.constructor) {
-            case Point: {
+        switch (s.__proto__.constructor.name) {
+            case 'Point': {
                 this.drawRect(s.x, s.y, 1, 1, c, m);
                 break;
             }
-            case Circle: {
+            case 'Circle': {
                 this.ctx.beginPath();
                 this.ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
                 this.draw(m,c);
                 break;
             }
-            case Line: {
+            case 'Line': {
                 this.ctx.beginPath();
                 this.ctx.moveTo(s.pt1.x, s.pt1.y);
                 this.ctx.lineTo(s.pt2.x, s.pt2.y);
                 this.draw(m,c);
                 break;
             }
-            case Rectangle:
-            case Square: {
+            case 'Rectangle':
+            case 'Square': {
                 this.drawRect(s.x, s.y, s.width, s.height, m, c);
                 break;
             }
-            case Polygon: {
+            case 'Polygon': {
                 this.drawPolygon(s.pts, m, c);
                 break;
             }
