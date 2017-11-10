@@ -10,6 +10,9 @@ export class Point {
         this.x = a || 0;
         this.y = b || 0;
     }
+    spread() {
+        return [ this.x, this.y ];
+    }
     distanceTo(pt) {
         return Math.sqrt(Math.pow(pt.x - this.x, 2) + Math.pow(pt.y - this.y, 2));
     }
@@ -23,8 +26,8 @@ export class Point {
         this.y -= pt.y;
         return this;
     }
-    spread() {
-        return [ this.x, this.y ];
+    clone() {
+        return new Point(this.x, this.y);
     }
 }
 //
