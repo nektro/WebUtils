@@ -6,7 +6,7 @@
  */
 //
 export class Point {
-    constructor(a, b, c, d) {
+    constructor(a, b) {
         this.x = a || 0;
         this.y = b || 0;
     }
