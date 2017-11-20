@@ -18,6 +18,7 @@ export class Pencil {
     // draw image to the canvas
     // [[ image, sx, sy, sw, sh, dx, dy, dw, dh, rad ]]
     drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh, rad) {
+        this.ctx.globalAlpha = 1;
         if (rad === 0) {
             this.ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
         }
@@ -108,11 +109,11 @@ export class Pencil {
     }
 
     // draw a rectangle
-    // [[ x, y, width, height, mode, color ]]
-    drawRect(x, y, w, h, m, c) {
+    // [[ x, y, width, height, mode, color, alpha ]]
+    drawRect(x, y, w, h, m, c, a) {
         this.ctx.beginPath();
         this.ctx.rect(x,y,w,h);
-        this.draw(m,c);
+        this.draw(m,c,a);
     }
 
     // draw Text
