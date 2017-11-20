@@ -57,7 +57,8 @@ export class Pencil {
         }
     }
 
-    draw(m,c) {
+    draw(m, c, a=1) {
+        this.ctx.globalAlpha = a;
         this._getDrawMethod(m)(c);
     }
 
