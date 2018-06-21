@@ -1,5 +1,7 @@
-# WebUtils
+# [INACTIVE] WebUtils
 A collections of JavaScript libraries that help making web sites, apps, and games easier.
+
+See https://github.com/nektro/basalt instead!
 
 ----
 ### general.js
